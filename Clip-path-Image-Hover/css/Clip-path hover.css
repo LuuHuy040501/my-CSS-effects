@@ -1,0 +1,51 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    min-height: 100vh; 
+    
+}
+.container{
+    position: relative;
+    height: 400px;
+    width: 600px;
+    border: 4px solid #fff;
+    margin-top: 25vh;
+}
+.container .box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  
+}
+
+.container .box:first-child{
+    background: url("../images/dog.jpg");
+}
+
+.container .box:nth-child(2) {
+    background: url("../images/cat.jpg");
+    z-index: 2;
+    transition: 0.5s;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
+}
+.container .box:nth-child(2):hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+/* X~Y lấy tất cả phần tử y đứng sau X  */
+.container .box:first-child:hover ~
+.box:nth-child(2) {
+    clip-path: polygon(0 0, 100% 0, 0 0, 0% 100%);
+}
+/* X+Y lấy phần tử Y đầu tiên sau X */
+/* .container .box:first-child:hover +
+.box:nth-child(2) {
+    clip-path: polygon(0 0, 100% 0, 0 0, 0% 100%);
+} */
