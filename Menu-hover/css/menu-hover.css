@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #efefef;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.menu {
+    margin: 0;
+    padding: 0;
+    margin-top: 350px;
+
+}
+.menu li {
+    list-style: none;
+    margin-left: 7vw;
+}
+.menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.menu li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 700;
+    display: block;
+    overflow: hidden; /* để  phần tử ảo after bị biến mất khi nó tràn ra ngoài phạm vi thẻ a*/
+    transition: 0.7s all;
+}
+/* tạo hiệu ứng với after */
+.menu li a::after {
+    content: '';
+    display: block;
+    width: 60px;
+    position: relative;
+    border-bottom: 8px solid black;
+    transition: 0.7s;
+    right: 80px; /* khi phần tử ảo after bị đẩy sang trái 60px (right: 60px) nó biến mất do a có thuộc tính overflow: hidden */
+
+}
+.menu li a:hover::after {
+    right: 0px; /* đưa after về vị trí ban đầu của nó */
+}
