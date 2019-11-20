@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container a {
+    display: inline-flex; /* coi mỗi phần tử a như 1 container của flex */
+    text-decoration: none; 
+    font-size: 20px;
+    width: 70px;
+    height: 70px;
+    background: none; /* để background a ko đề lên before */
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    position: relative;
+}
+/* tạo nút social */
+.container a::before {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background:  linear-gradient(45deg, #22a6b3, #686de0);
+    border-radius: 50%;
+    z-index: -1;
+    transition: .3s ease-in;
+}
+.container a i {
+    transition: .3s ease-in;
+}
+/* hover effect */
+.container a:hover::before {
+    transform: scale(0);
+}
+.container a:hover i {
+    background:  linear-gradient(45deg, #22a6b3, #686de0); /* để màu background cho nó có thể đè lên màu của before*/
+    -webkit-background-clip: text;
+    color: transparent;   /* để logo lấy màu back-ground*/
+    transform: scale(2.2);
+   
+}
+/* youtube logo is red */
+.container a:hover i[class="fab fa-youtube"] {
+    color: red;
+    transform: scale(2.2);
+}
